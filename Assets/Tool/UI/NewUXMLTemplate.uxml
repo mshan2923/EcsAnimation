@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-self: flex-start; height: 35px; align-items: center; justify-content: space-between; width: 100%; min-width: auto;">
+        <ui:Label tabindex="-1" text="Target :" display-tooltip-when-elided="true" name="SelectTitle" style="height: auto; white-space: nowrap; width: 50px; align-self: flex-start; align-items: flex-start; left: 0; position: absolute; justify-content: space-around;" />
+        <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" enable-rich-text="true" name="SelectObject" style="-unity-text-align: upper-left; white-space: normal; align-self: stretch; justify-content: space-around; height: auto; align-items: stretch; width: auto; position: absolute; left: 70px; min-width: auto;" />
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 366px;" />
+</ui:UXML>

@@ -1,0 +1,66 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Tool/UI/ECSAnimation.uss?fileID=7433441132597879392&amp;guid=940814c76d08ee64e98a9cf6e7f96b14&amp;type=3#ECSAnimation" />
+    <uie:ObjectField label="Data Table" type="ECSAnimationDataTable, Assembly-CSharp" name="DataTable" allow-scene-objects="false" />
+    <uie:ObjectField label="Target Pawn" type="Animation.Humanoid, Assembly-CSharp" name="PawnField" />
+    <ui:VisualElement name="FoldOutPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-self: stretch; align-items: stretch; height: auto; position: relative; top: auto; justify-content: flex-start; max-height: 100px; min-height: auto;">
+        <ui:Foldout text="Animation List" style="align-self: stretch; align-items: stretch;">
+            <ui:ScrollView name="AnimationList" style="align-self: stretch; justify-content: space-around;" />
+        </ui:Foldout>
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; max-height: 30px;">
+        <ui:VisualElement name="StatePanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: auto; max-height: 30px;">
+            <ui:VisualElement name="KeyPointAmountPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); max-height: 20px; height: 20px; align-self: stretch; justify-content: flex-start; flex-direction: row;">
+                <ui:Label tabindex="-1" text="Key Point Amount : " display-tooltip-when-elided="true" name="KeyPointTitle" style="max-height: none; max-width: 115px; width: 115px; align-self: stretch;" />
+                <ui:Label tabindex="-1" text="Not Select Animation" display-tooltip-when-elided="true" name="KeyPointVaule" style="align-self: stretch; justify-content: space-around;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="AnimLengthPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); max-height: 20px; height: 20px; align-self: stretch; justify-content: flex-start; flex-direction: row;">
+                <ui:Label tabindex="-1" text="Animation Length : " display-tooltip-when-elided="true" name="AnimLengthTitle" style="max-height: none; max-width: 115px; width: 115px; align-self: stretch;" />
+                <ui:Label tabindex="-1" text="Not Select Animation" display-tooltip-when-elided="true" name="AnimLengthVaule" style="align-self: stretch; justify-content: space-around;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Button text="Reset" display-tooltip-when-elided="true" name="AddKeyPoint" style="min-width: 50px; width: 50px;" />
+    </ui:VisualElement>
+    <ui:Slider picking-mode="Ignore" label="Zoom" value="1" high-value="10" show-input-field="true" low-value="0.1" inverted="false" name="ZoomSlider" />
+    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); min-height: 65px; align-self: flex-start; justify-content: space-around; height: 65px; max-height: none;">
+        <ui:ScrollView name="AnimTimeline" vertical-scroller-visibility="Hidden" horizontal-scroller-visibility="AlwaysVisible" mode="Horizontal" style="max-height: none; height: 65px; min-height: 65px; align-self: stretch; justify-content: space-around; align-items: stretch;">
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); min-height: 50px; align-self: stretch; justify-content: space-around;">
+                <ui:Button display-tooltip-when-elided="true" name="TimelineButton" text="Time Line" usage-hints="DynamicTransform" style="max-height: 20px; height: 20px; max-width: 500px; width: 500px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-top-left-radius: 3px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; translate: 0 0; align-self: flex-start; left: -3px; color: rgb(238, 238, 238); -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(88, 88, 88);" />
+                <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; min-height: 30px; min-width: auto;">
+                    <ui:VisualElement name="OutOfTimePanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.4); flex-direction: row; align-self: stretch; align-items: stretch; min-width: 100%; position: absolute; left: 0; justify-content: space-around; bottom: auto; min-height: 30px; width: 100%; height: 30px;">
+                        <ui:Label tabindex="-1" text="OutOfTime" display-tooltip-when-elided="true" name="OutOfTimeLabel" style="position: absolute; left: 10px; align-self: center; justify-content: space-around; min-height: 15px; align-items: flex-start; -unity-text-align: upper-left; background-color: rgba(0, 0, 0, 0); top: auto;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="KeyPointPanel" picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-self: stretch; justify-content: flex-start; flex-direction: row; align-items: stretch; max-width: 500px; width: 500px; left: 0; top: 0; right: 0; bottom: 0; position: relative; max-height: none; min-height: 30px; white-space: normal;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:ScrollView>
+    </ui:VisualElement>
+    <ui:VisualElement name="PlayButton" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); max-height: 25px; height: 25px; flex-direction: row; justify-content: space-between; align-self: stretch; align-items: stretch; -unity-text-align: lower-left;">
+        <ui:Button text="|&lt;&lt;" display-tooltip-when-elided="true" name="GoToStart" style="align-self: stretch; justify-content: space-around; max-width: 30%; width: 30%; align-items: stretch;" />
+        <ui:Button text="[  &gt;  ]" display-tooltip-when-elided="true" name="Play" style="width: 30%; max-width: 30%;" />
+        <ui:Button text="&gt;&gt;|" display-tooltip-when-elided="true" name="GoToEnd" style="max-height: none; max-width: 30%; width: 30%;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="AnimationSettingPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-self: stretch; justify-content: space-between; align-items: center; max-width: 100%; width: 100%; max-height: 30px; height: 30px; -unity-text-align: middle-left;">
+            <ui:Toggle label="Auto Keying" name="AutoKeying" style="align-self: flex-end;" />
+            <ui:FloatField label="Timeline MaxLength" value="5" name="TimelineLength" style="align-self: flex-end; align-items: stretch; justify-content: space-around; max-width: 175px;" />
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: auto; max-height: none; flex-direction: row; justify-content: space-between; align-self: stretch; align-items: center; min-height: auto;">
+            <ui:Toggle label="Looping" name="Looping" />
+            <ui:FloatField label="FadeTime" value="0" name="FadeTime" style="align-self: flex-end; justify-content: space-around; max-width: 175px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Foldout text="KeyPoint Setting" name="KeyPointSetting" style="height: 120px;">
+        <ui:VisualElement name="KeyPointSettingPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:FloatField label="KeyPoint Time" value="0" name="KeyPointTime" />
+            <ui:Button text="Remove KeyPoint" display-tooltip-when-elided="true" name="RemoveKeyPoint" />
+            <ui:Button text="Get PrePose" display-tooltip-when-elided="true" name="GetPrePose" style="top: 10px;" />
+            <ui:Button text="Pose Upload" display-tooltip-when-elided="true" name="PoseUpload" style="top: 10px;" />
+        </ui:VisualElement>
+    </ui:Foldout>
+    <ui:Label tabindex="-1" text="Not Select Animation" display-tooltip-when-elided="true" name="State" style="align-self: stretch; justify-content: flex-end; align-items: center; max-height: 20px; height: 20px; -unity-text-align: middle-center; font-size: 15px; top: auto;" />
+    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+        <ui:Foldout text="제한사항" value="false">
+            <ui:Label tabindex="-1" display-tooltip-when-elided="true" text="- 최상위 부위의 크기가 1 이여야함 &#10;- curve 미사용 &#10;- AutoKeying 아직 미구현" style="align-self: center; justify-content: center; padding-bottom: 5px;" />
+        </ui:Foldout>
+    </ui:VisualElement>
+</ui:UXML>
