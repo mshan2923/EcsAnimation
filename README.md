@@ -1,0 +1,2 @@
+# EcsAnimation
+[system.obsolete]
